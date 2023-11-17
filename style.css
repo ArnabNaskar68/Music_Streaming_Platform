@@ -15,11 +15,13 @@ body {
 }
 
 header {
+  position: relative;
   width: 85%;
   height: 95%;
-  border: 1px solid #541088;
+  /*border: 1px solid #541088;/*
   display: flex;
   flex-wrap: wrap;
+  overflow: hidden;
 }
 
 header .menu_side,
@@ -78,7 +80,7 @@ header .menu_side .playlist h4 span::before {
   position: absolute;
   width: 4px;
   height: 4px;
-  /* border: 2px solid #4c5262; */
+  border: 2px solid #4c5262;
   border-radius: 50%;
   top: -4px;
   transition: 3s linear;
@@ -179,7 +181,7 @@ header .master_play .wave .wave1:nth-child(3) {
   margin-right: 3.5px;
   animation-delay: 0.8s;
 }
-/* javascript classses */
+/* javascript classes */
 header .master_play .active1 .wave1 {
   animation: wave 0.5s linear infinite;
 }
@@ -301,3 +303,160 @@ header .master_play .bar .dot::before {
   top: -6.5px;
   box-shadow: inset 0px 0px 3px #36e236;
 }
+header .master_play .bar input {
+    position: absolute;
+    width: 100%;
+    top: -7px;
+    left: 0;
+    cursor: pointer;
+    z-index: 99999999999999999999999999;
+    /*transition: 3s linear; */
+    opacity: 0; 
+  }
+  header .master_play .vol{
+    position: relative;
+    width: 100px;
+    height: 2px;
+    background: rgb(105, 105, 170, .1);
+    margin-left: 50px;
+  }
+  header .master_play .vol .bi{
+    position: relative;
+    color: #fff;
+    font-size: 25px;
+    top: -17px;
+    left: -30px;
+  }
+  header .master_play .vol input{
+    position: relative;
+   width: 100%;
+   top: -6px;
+   left: 0;
+   cursor: pointer;
+   z-index: 99999999999999999999999999;
+   opacity: 0;
+  }
+  header .master_play .vol .vol_bar{
+    position: relative;
+   background-color: #36e2ec;
+   width: 50%;
+   height: 100%;
+   top: 0;
+   transition: 1s linear;
+  }
+  header .master_play .vol .dot{
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #36e2ec;
+    border-radius: 50%;
+    left: 0%;
+    top: -1.5 px;
+    transition: 1s linear;  
+  }
+  header .master_play .vol .dot::before{
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    border: 1px solid #36e2ec;
+    border-radius: 50%;
+    left: -7px;
+    top: -6.5px;
+    box-shadow: inset 0px 0px 3px #36e2ec;  
+  }
+  
+  header .song_side{
+    z-index: 2;
+  }
+
+  header .song_side::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    background: url('bg.png');
+    z-index: -1;
+  }
+
+  header .song_side nav{
+    width: 90%;
+    height: 10%;
+    /*border: 1px solid #fff;*/
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+
+  header .song_side nav ul{
+   display: flex;
+  }
+  header .song_side nav ul li{
+    list-style: none;
+    position: relative;
+    font-size: 13px;
+    color: #4c5262;
+    margin-right: 25px;
+    cursor: pointer;
+    transition: .3s linear;
+   }
+   header .song_side nav ul li:hover{
+    color: #fff;
+   }
+   header .song_side nav ul li:nth-child(1){
+    color: #fff;
+   }
+   header .song_side nav ul li span{
+    position: absolute;
+    width: 100%;
+    height: 2.5px;
+    background: #36e2ec;
+    bottom: -5px;
+    left: 0;
+    border-radius: 20px;
+   }
+   header .song_side nav .search{
+   position: relative;
+   width: 40%;
+   padding: 1px 10px;
+   border-radius: 20px;
+   border: 1px solid #fff;
+   color: gray;
+   }
+   header .song_side nav .search::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgb(184, 184, 184, .1);
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    z-index: -1;   
+    }
+    header .song_side nav .search .bi{
+       font-size: 13px;
+       padding: 3px 0px 0px 10px;
+    }
+    header .song_side nav .search input{
+        background: none;
+        border: none;
+        outline: none;
+        padding: 0px 10px;
+        color: #fff;
+        font-size: 12px;
+     }
+     header .song_side nav .user{
+        position: relative;
+        width: 30px;
+        height: 30px;
+        /*border: 1px solid #fff;*/
+        border-radius: 50%;   
+     }
+     header .song_side nav .user img{
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        box-shadow: 2px 2px 8px #121213;       
+     }
