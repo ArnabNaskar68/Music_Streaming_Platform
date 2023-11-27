@@ -1,25 +1,24 @@
 const music = new Audio("audio/1.mp3");
-// music.play();
 
 const songs = [
   {
-    id: "1",
-    songName: 'On My Way <br><div class="subtitle">Alan Walker</div>',
+    id: 1,
+    songName: `On My Way <br><div class="subtitle">Alan Walker</div>`,
     poster: "img/1.jpg",
   },
   {
-    id: "2",
-    songName: 'Alan Walker Fade <br><div class="subtitle">Alan Walker</div>',
-    poster: "img/1.jpg",
+    id: 2,
+    songName: 'Alan Walker Faded <br><div class="subtitle">Alan Walker</div>',
+    poster: "img/2.jpg",
   },
   {
-    id: "3",
+    id: 3,
     songName: 'Cartoon - On & On <br><div class="subtitle">Daniel Levi</div>',
     poster: "img/3.jpg",
   },
   {
-    id: "4",
-    songName: 'Warriyo Mortals<br><div class="subtitle">Mortals</div>',
+    id: 4,
+    songName: `Warriyo Mortals<br><div class="subtitle">Mortals</div>`,
     poster: "img/4.jpg",
   },
   {
@@ -164,8 +163,8 @@ masterPlay.addEventListener("click", () => {
   if (music.paused || music.currentTime <= 0) {
     music.play();
     wave.classList.add("active1");
-    masterPlay.classList.remove("bi bi-play-fill");
-    masterPlay.classList.add("bi bi-pause-fill");
+    masterPlay.classList.remove("bi-play-fill");
+    masterPlay.classList.add("bi-pause-fill");
   } else {
     music.pause();
     wave.classList.remove("active1");
@@ -193,7 +192,7 @@ let title = document.getElementById("title");
 Array.from(document.getElementsByClassName("playListPlay")).forEach((e) => {
   e.addEventListener("click", (el) => {
     index = el.target.id;
-    // console.log(index);
+    console.log(index);
     music.src = `audio/${index}.mp3`;
     poster_master_play.src = `img/${index}.jpg`;
     music.play();
