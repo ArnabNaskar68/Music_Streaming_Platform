@@ -4,7 +4,7 @@ const music = new Audio("audio/1.mp3");
 const songs = [
   {
     id: "1",
-    songName: 'Arjit 123<br><div class="subtitle">Alan Walker</div>',
+    songName: 'arjit 123 <br><div class="subtitle">Alan Walker</div>',
     poster: "img/arjit/1.jpg",
   },
   {
@@ -77,15 +77,59 @@ const songs = [
     songName: 'Lut Gaye<br><div class="subtitle">Jubin Nautiyal</div>',
     poster: "img/arjit/15.jpg",
   },
-
-]
+];
 
 Array.from(document.getElementsByClassName("songItem")).forEach((e, i) => {
   e.getElementsByTagName("img")[0].src = songs[i].poster;
   e.getElementsByTagName("h5")[0].innerHTML = songs[i].songName;
 });
+
+// search data start
+let search_results = document.getElementsByClassName("search_results");
+
+songs.forEach((element) => {
+  const { id, songName, poster } = element;
+  //console.log(poster);
+  let card = document.createElement("a");
+  card.classList.add("card");
+  card.href = "#" + id;
+  card.innerHTML = `
+  <img src="${poster}" alt="">
+                <div class="content">
+                    ${songName} 
+                </div>
+  `;
+  search_results.appendChild(card);
+});
+
+let input = document.getElementsByTagName("input")[0];
+
+input.addEventListener("keyup", () => {
+  let input_value = input.value.toUpperCase();
+  let items = search_results.getElementsByTagName("a");
+
+  for (let index = 0; index < items.length; index++) {
+    let as = items[index].getElementsByClassName("content")[0];
+    let text_value = as.textContent || as.innerHTML;
+
+    if (text_value.toUpperCase().indexOf(input_value) > -1) {
+      items[index].style.display = "flex";
+    } else {
+      items[index].style.display = "none";
+    }
+
+    if (input.value == 0) {
+      search_results.style.display = "none";
+    } else {
+      search_results.style.display = "none";
+    }
+  }
+});
+// search data end
+
 let masterPlay = document.getElementById("masterPlay");
 let wave = document.getElementById("wave");
+
 masterPlay.addEventListener("click", () => {
   if (music.paused || music.currentTime <= 0) {
     music.play();
@@ -120,7 +164,7 @@ Array.from(document.getElementsByClassName("playListPlay")).forEach((e) => {
   e.addEventListener("click", (el) => {
     index = el.target.id;
     // console.log(index);
-    music.src = `audio/${index}.mp3`;
+    music.src = `audio/arjit/${index}.mp3`;
     poster_master_play.src = `img/arjit/${index}.jpg`;
     music.play();
     masterPlay.classList.remove("bi-play-fill");
@@ -332,8 +376,8 @@ const next_music = () => {
   } else {
     index++;
   }
-  music.src = `audio/${index}.mp3`;
-  poster_master_play.src = `img/${index}.jpg`;
+  music.src = `audio/arjit/${index}.mp3`;
+  poster_master_play.src = `img/arjit/${index}.jpg`;
   music.play();
   masterPlay.classList.remove("bi-play-fill");
   masterPlay.classList.add("bi-pause-fill");
@@ -359,8 +403,8 @@ const next_music = () => {
 
 const repeat_music = () => {
   index;
-  music.src = `audio/${index}.mp3`;
-  poster_master_play.src = `img/${index}.jpg`;
+  music.src = `audio/arjit/${index}.mp3`;
+  poster_master_play.src = `img/arjit/${index}.jpg`;
   music.play();
   masterPlay.classList.remove("bi-play-fill");
   masterPlay.classList.add("bi-pause-fill");
@@ -389,8 +433,8 @@ const random_music = () => {
   } else {
     index = Math.floor(Math.random() * songs.length + 1);
   }
-  music.src = `audio/${index}.mp3`;
-  poster_master_play.src = `img/${index}.jpg`;
+  music.src = `audio/arjit/${index}.mp3`;
+  poster_master_play.src = `img/arjit/${index}.jpg`;
   music.play();
   masterPlay.classList.remove("bi-play-fill");
   masterPlay.classList.add("bi-pause-fill");
